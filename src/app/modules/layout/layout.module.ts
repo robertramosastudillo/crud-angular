@@ -7,17 +7,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
   declarations: [SidebarComponent],
-  imports: [
-    CommonModule,
-    BrowserModule,
-    BrowserAnimationsModule,
-    MatButtonModule,
-  ],
-  exports: [
-    SidebarComponent,
-    BrowserModule,
-    BrowserAnimationsModule,
-    MatButtonModule,
-  ],
+  imports: [CommonModule, BrowserModule, BrowserAnimationsModule],
+  exports: [SidebarComponent, BrowserModule, BrowserAnimationsModule],
 })
 export class LayoutModule {}
