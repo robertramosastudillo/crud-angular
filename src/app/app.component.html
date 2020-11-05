@@ -4,27 +4,24 @@
   </mat-sidenav>
 
   <mat-sidenav-content>
-    <mat-toolbar color="primary">
+    <mat-toolbar>
       <button mat-icon-button (click)="sidenav.toggle()">
         <mat-icon>menu</mat-icon>
       </button>
-      My Application
+      Crud
       <span class="toolbar-spacer"></span>
       My Account
     </mat-toolbar>
     <div class="main-content">
-      <p>
-        Lorem Ipsum is simply dummy text of the printing and typesetting
-        industry. Lorem Ipsum has been the industry's standard dummy text ever
-        since the 1500s, when an unknown printer took a galley of type and
-        scrambled it to make a type specimen book. It has survived not only five
-        centuries, but also the leap into electronic typesetting, remaining
-        essentially unchanged. It was popularised in the 1960s with the release
-        of Letraset sheets containing Lorem Ipsum passages, and more recently
-        with desktop publishing software like Aldus PageMaker including versions
-        of Lorem Ipsum.
-      </p>
+      <router-outlet></router-outlet>
     </div>
-    <router-outlet></router-outlet>
   </mat-sidenav-content>
 </mat-sidenav-container>
+
+
+<!-- https://blog.moeminmamdouh.com/20-free-design-resources-for-developers
+
+#e2f3f5
+#22d1ee
+#3d5af1
+#0e153a -->
