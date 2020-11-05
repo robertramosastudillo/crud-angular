@@ -1,20 +1,32 @@
 /* You can add global styles to this file, and also import other style files */
 
-html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+html,
+body {
+  height: 100%;
+}
+body {
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+}
 
 /* You can add global styles to this file, and also import other style files */
 mat-sidenav {
-    width: 280px;
-    padding:15px;
+  width: 280px;
+  padding: 15px;
 }
 .mat-drawer {
-    background-color: #023075;
-    color:#fff
+  background-color: #073b4c;
+  color: #fff;
 }
 .main-content {
-    padding:20px;
+  padding: 20px;
 }
 .toolbar-spacer {
-    flex: 1 1 auto;
+  flex: 1 1 auto;
 }
+
+// 073B4C
+// 118AB2
+// 06D6A0
+// FFD166
+// EF476F
