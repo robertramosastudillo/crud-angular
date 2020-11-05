@@ -13,7 +13,7 @@ import { RouterModule } from '@angular/router';
     BrowserModule,
     BrowserAnimationsModule,
     CustomMaterialModule,
-    RouterModule
+    RouterModule,
   ],
   exports: [SidebarComponent],
 })

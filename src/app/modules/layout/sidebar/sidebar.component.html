@@ -1,12 +1,13 @@
 <mat-sidenav mode="side" #sidenav opened position="start">
   <div>
-    <h3>Logo</h3>
+    <a [routerLink]="['/']">
+      <p>Logo</p>
+    </a>
   </div>
   <div>
-
     <ul>
       <li>
-        <a> Usuario </a>
+        <a [routerLink]="['usuarios']">Usuario</a>
       </li>
     </ul>
   </div>

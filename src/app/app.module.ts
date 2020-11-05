@@ -6,9 +6,12 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { LayoutModule } from './modules/layout/layout.module';
 import { CustomMaterialModule } from './modules/custom-material/custom-material.module';
+import { UsuarioComponent } from './components/usuario/usuario.component';
+import { HomeComponent } from './components/home/home.component';
+import { NotFoundComponent } from './components/not-found/not-found.component';
 
 @NgModule({
-  declarations: [AppComponent],
+  declarations: [AppComponent, UsuarioComponent, HomeComponent, NotFoundComponent],
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
