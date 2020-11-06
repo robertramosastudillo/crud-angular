@@ -1,5 +1,5 @@
 import { GenericDto } from './GenericDto';
-export class UsuarioDto extends GenericDto {
+export class PersonaDto extends GenericDto {
   id?: number;
   nombre?: string;
   apellido?: string;
@@ -8,7 +8,7 @@ export class UsuarioDto extends GenericDto {
   direccion?: string;
   estado?: string;
 
-  constructor(init?: Partial<UsuarioDto>) {
+  constructor(init?: Partial<PersonaDto>) {
     super();
     if (init) {
       Object.assign(this, init);

@@ -1,0 +1,76 @@
+<div class="container">
+  <div class="titulo">
+    <h2>Persona</h2>
+  </div>
+
+  <form
+    (ngSubmit)="formulario.form.valid && actualizarPersona(formulario)"
+    #formulario="ngForm"
+    novalidate
+  >
+    <div class="row justify-content-around">
+      <div class="col-md-5">
+        <mat-form-field>
+          <input
+            matInput
+            placeholder="Nombre"
+            [(ngModel)]="personaDto.nombre"
+            #descripcion="ngModel"
+            name="nombre"
+            required
+          />
+        </mat-form-field>
+      </div>
+      <div class="col-md-5">
+        <mat-form-field>
+          <input
+            matInput
+            placeholder="Apellido"
+            [(ngModel)]="personaDto.apellido"
+            #descripcion="ngModel"
+            name="apellido"
+            required
+          />
+        </mat-form-field>
+      </div>
+    </div>
+
+    <!-- Inicio Botones-->
+    <div class="pull-right">
+      <button
+        mat-raised-button
+        type="submit"
+        class="btn btn-warning btn-round mat-raised-button"
+        [disabled]="!formulario.valid"
+      >
+        {{ modoEdicion ? "Actualizar" : "Guardar" }}
+      </button>
+      <button
+        (click)="limpiar()"
+        type="button"
+        mat-raised-button
+        class="btn btn-warning btn-round mat-raised-button"
+      >
+        Limpiar
+      </button>
+    </div>
+    <!-- Fin Botones-->
+  </form>
+</div>
+
+<!-- <div class="card">
+
+  <div class="card-header card-header-text card-header-warning">
+    <div class="card-text">
+      <h4 class="card-title">Impuestos</h4>
+    </div>
+  </div>
+
+  <div class="card-body">
+
+    <h4>Hola :v</h4>
+
+  </div>
+
+
+</div> -->
