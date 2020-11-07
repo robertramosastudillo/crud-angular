@@ -1,24 +1,24 @@
 import { Injectable } from '@angular/core';
+import { PersonaDto } from '../../data/schema/PersonaDto';
+import { environment } from '../../../environments/environment';
+import { HttpClient } from '@angular/common/http';
 import { HttpService } from './http.service';
 import { GenericDto } from '../../data/schema/GenericDto';
-import { environment } from 'src/environments/environment';
-import { HttpClient } from '@angular/common/http';
-import { PersonaDto } from '../../data/schema/PersonaDto';
 import { Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root',
 })
-export class UsuarioService extends HttpService<GenericDto> {
+export class PersonaService extends HttpService<GenericDto> {
   constructor(public httpClient: HttpClient) {
-    super(httpClient, environment.baseUrl + '/usuarios');
+    super(httpClient, environment.baseUrl + '/personas');
   }
 
-  obtenerUsuarios(): Observable<PersonaDto[]> {
+  obtenerPersonas(): Observable<PersonaDto[]> {
     return super.get('obtenerPersonas', 'Error al consultar las personas.');
   }
 
-  crearUsuario(personaDto: PersonaDto): Observable<any> {
+  crearPersona(personaDto: PersonaDto): Observable<any> {
     return super.post('crearPersona', 'Error al crear la persona.', personaDto);
   }
 }

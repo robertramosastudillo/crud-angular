@@ -1,11 +1,13 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { PersonaDto } from '../../data/schema/PersonaDto';
+import { PersonaService } from '../../core/services/persona.service';
 
 @Component({
   selector: 'app-persona',
   templateUrl: './persona.component.html',
   styleUrls: ['./persona.component.scss'],
+  providers: [PersonaService],
 })
 export class PersonaComponent implements OnInit {
   // Objects
@@ -16,7 +18,7 @@ export class PersonaComponent implements OnInit {
   modoEdicion = false;
 
   @ViewChild('formulario', { static: false }) slForm: NgForm;
-  constructor() {}
+  constructor(private personaService: PersonaService) {}
 
   ngOnInit(): void {}
 
@@ -24,7 +26,7 @@ export class PersonaComponent implements OnInit {
     // console.log(formulario.value);
     console.log(this.personaDto);
     if (this.modoEdicion) {
-      console.log('Actualizar')
+      console.log('Actualizar');
       // this.impuestosService.actualizarImpuesto(this.impuesto).subscribe(
       //   (res: any) => {
       //     this.impuestos = this.impuestos.filter(
@@ -41,18 +43,17 @@ export class PersonaComponent implements OnInit {
       //   }
       // );
     } else {
-        console.log('Crear');
-      // this.impuestosService.crearImpuesto(this.impuesto).subscribe(
-      //   (res: any) => {
-      //     this.impuestos.push(res);
-      //     this.prepareDatatable();
-      //     this.limpiar();
-      //     this.alertService.success('Impuesto creado con éxito.');
-      //   },
-      //   (error) => {
-      //     this.alertService.error(error);
-      //   }
-      // );
+      console.log('Crear');
+      this.personaService.crearPersona(this.personaDto).subscribe(
+        (res: any) => {
+          // this.personaDto.push(res);
+          this.limpiar();
+          alert('Persona creada con exito');
+        },
+        (error) => {
+          alert(error);
+        }
+      );
     }
   }
 
