@@ -41,21 +41,16 @@ export class PersonaComponent implements OnInit {
     console.log(this.personaDto);
     if (this.modoEdicion) {
       console.log('Actualizar');
-      // this.impuestosService.actualizarImpuesto(this.impuesto).subscribe(
-      //   (res: any) => {
-      //     this.impuestos = this.impuestos.filter(
-      //       (obj) => obj !== this.impuestosEdit
-      //     );
-      //     this.impuestos.push(res);
-      //     this.prepareDatatable();
-      //     this.limpiar();
-      //     this.alertService.success('Impuesto actualizado con éxito.');
-      //     this.obtenerImpuestos();
-      //   },
-      //   (error) => {
-      //     this.alertService.error(error);
-      //   }
-      // );
+      this.personaService.actualizarPersona(this.personaDto).subscribe(
+        (res: any) => {
+          // this.personaDto.push(res);
+          this.limpiar();
+          alert('Persona actualizada con exito');
+        },
+        (error) => {
+          alert(error);
+        }
+      );
     } else {
       console.log('Crear');
       this.personaService.crearPersona(this.personaDto).subscribe(

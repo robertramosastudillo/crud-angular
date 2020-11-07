@@ -21,4 +21,12 @@ export class PersonaService extends HttpService<GenericDto> {
   crearPersona(personaDto: PersonaDto): Observable<any> {
     return super.post('crearPersona', 'Error al crear la persona.', personaDto);
   }
+
+  actualizarPersona(personaDto: PersonaDto): Observable<any> {
+    return super.post(
+      'actualizarPersona',
+      'Error al actualizar la persona.',
+      personaDto
+    );
+  }
 }
