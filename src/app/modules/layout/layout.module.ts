@@ -6,9 +6,14 @@ import { CustomMaterialModule } from '../custom-material/custom-material.module'
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { RouterModule } from '@angular/router';
 import { ConfirmationDialogComponent } from './confirmation-dialog/confirmation-dialog.component';
+import { TableListComponent } from './table-list/table-list.component';
 
 @NgModule({
-  declarations: [SidebarComponent, ConfirmationDialogComponent],
+  declarations: [
+    SidebarComponent,
+    ConfirmationDialogComponent,
+    TableListComponent,
+  ],
   imports: [
     CommonModule,
     BrowserModule,
@@ -16,6 +21,6 @@ import { ConfirmationDialogComponent } from './confirmation-dialog/confirmation-
     CustomMaterialModule,
     RouterModule,
   ],
-  exports: [SidebarComponent],
+  exports: [SidebarComponent, ConfirmationDialogComponent, TableListComponent],
 })
 export class LayoutModule {}
