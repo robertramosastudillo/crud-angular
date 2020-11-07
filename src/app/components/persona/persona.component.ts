@@ -14,13 +14,27 @@ export class PersonaComponent implements OnInit {
   personaDto: PersonaDto = new PersonaDto();
 
   // ArrayLists
+  listadoPersonasDto: Array<PersonaDto> = new Array<PersonaDto>();
 
   modoEdicion = false;
 
   @ViewChild('formulario', { static: false }) slForm: NgForm;
   constructor(private personaService: PersonaService) {}
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.obtenerPersonas();
+  }
+
+  obtenerPersonas() {
+    this.personaService.obtenerPersonas().subscribe(
+      (res) => {
+        this.listadoPersonasDto = res;
+      },
+      (error) => {
+        alert(error);
+      }
+    );
+  }
 
   actualizarPersona(formulario: NgForm) {
     // console.log(formulario.value);
