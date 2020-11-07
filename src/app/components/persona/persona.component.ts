@@ -2,6 +2,8 @@ import { Component, OnInit, ViewChild } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { PersonaDto } from '../../data/schema/PersonaDto';
 import { PersonaService } from '../../core/services/persona.service';
+import { MatDialog } from '@angular/material/dialog';
+import { ConfirmationDialogComponent } from '../../modules/layout/confirmation-dialog/confirmation-dialog.component';
 
 @Component({
   selector: 'app-persona',
@@ -19,7 +21,10 @@ export class PersonaComponent implements OnInit {
   modoEdicion = false;
 
   @ViewChild('formulario', { static: false }) slForm: NgForm;
-  constructor(private personaService: PersonaService) {}
+  constructor(
+    private personaService: PersonaService,
+    public dialog: MatDialog
+  ) {}
 
   ngOnInit(): void {
     this.obtenerPersonas();
@@ -36,6 +41,52 @@ export class PersonaComponent implements OnInit {
     );
   }
 
+  actualizarEstadoPersona(idPersona) {
+    const dialogRef = this.dialog.open(ConfirmationDialogComponent, {
+      width: '350px',
+      data: 'Está seguro(a) que desea proceder?',
+    });
+    dialogRef.afterClosed().subscribe((result) => {
+      if (result) {
+        this.personaService.actualizarEstadoPersona(idPersona).subscribe(
+          (res: any) => {
+            this.obtenerPersonas();
+            this.limpiar();
+            console.log('Estado actualizado');
+          },
+          (error) => {
+            console.log(error);
+          }
+        );
+      } else {
+        console.log('No se realizó ninguna acción');
+      }
+    });
+  }
+
+  eliminarPersona(idPersona) {
+    const dialogRef = this.dialog.open(ConfirmationDialogComponent, {
+      width: '350px',
+      data: 'Está seguro(a) que desea proceder?',
+    });
+    dialogRef.afterClosed().subscribe((result) => {
+      if (result) {
+        this.personaService.eliminarPersona(idPersona).subscribe(
+          (res: any) => {
+            this.obtenerPersonas();
+            this.limpiar();
+            console.log('Persona eliminada');
+          },
+          (error) => {
+            console.log(error);
+          }
+        );
+      } else {
+        console.log('No se realizó ninguna acción');
+      }
+    });
+  }
+
   actualizarPersona(formulario: NgForm) {
     // console.log(formulario.value);
     console.log(this.personaDto);
@@ -45,7 +96,7 @@ export class PersonaComponent implements OnInit {
         (res: any) => {
           // this.personaDto.push(res);
           this.limpiar();
-          alert('Persona actualizada con exito');
+          console.log('Persona actualizada con exito');
         },
         (error) => {
           alert(error);
@@ -57,7 +108,7 @@ export class PersonaComponent implements OnInit {
         (res: any) => {
           // this.personaDto.push(res);
           this.limpiar();
-          alert('Persona creada con exito');
+          console.log('Persona creada con exito');
         },
         (error) => {
           alert(error);
