@@ -9,7 +9,7 @@
     novalidate
   >
     <div class="row justify-content-around">
-      <div class="col-md-5">
+      <div class="col-md-6">
         <mat-form-field>
           <input
             matInput
@@ -21,7 +21,7 @@
           />
         </mat-form-field>
       </div>
-      <div class="col-md-5">
+      <div class="col-md-6">
         <mat-form-field>
           <input
             matInput
@@ -34,23 +34,62 @@
         </mat-form-field>
       </div>
     </div>
+    <div class="row justify-content-around">
+      <div class="col-md-6">
+        <mat-form-field>
+          <input
+            matInput
+            placeholder="Nombre"
+            [(ngModel)]="personaDto.fecha_nacimiento"
+            #fecha_nacimiento="ngModel"
+            name="fecha_nacimiento"
+            required
+          />
+        </mat-form-field>
+      </div>
+      <div class="col-md-6">
+        <mat-form-field>
+          <span matPrefix>+57 &nbsp;</span>
+          <input
+            matInput
+            type="tel"
+            placeholder="Telefono"
+            [(ngModel)]="personaDto.telefono"
+            #telefono="ngModel"
+            name="telefono"
+            required
+          />
+        </mat-form-field>
+      </div>
+    </div>
+
+    <div class="row justify-content-around">
+      <div class="col-md-5">
+        <mat-form-field>
+          <input
+            matInput
+            placeholder="Dirección"
+            [(ngModel)]="personaDto.direccion"
+            #direccion="ngModel"
+            name="direccion"
+            required
+          />
+        </mat-form-field>
+      </div>
+    </div>
 
     <!-- Inicio Botones-->
-    <div class="pull-right">
+    <div>
       <button
         mat-raised-button
         type="submit"
-        class="btn btn-warning btn-round mat-raised-button"
+        color="primary"
         [disabled]="!formulario.valid"
+        class="mr-2"
       >
         {{ modoEdicion ? "Actualizar" : "Guardar" }}
       </button>
-      <button
-        (click)="limpiar()"
-        type="button"
-        mat-raised-button
-        class="btn btn-warning btn-round mat-raised-button"
-      >
+      <button mat-raised-button color="basic" (click)="limpiar()" type="button">
         Limpiar
       </button>
     </div>
