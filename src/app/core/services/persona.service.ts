@@ -11,7 +11,7 @@ import { Observable } from 'rxjs';
 })
 export class PersonaService extends HttpService<GenericDto> {
   constructor(public httpClient: HttpClient) {
-    super(httpClient, environment.baseUrl + '/personas');
+    super(httpClient, environment.baseUrl + '/persona');
   }
 
   obtenerPersonas(): Observable<PersonaDto[]> {

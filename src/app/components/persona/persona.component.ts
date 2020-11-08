@@ -34,6 +34,7 @@ export class PersonaComponent implements OnInit {
     this.personaService.obtenerPersonas().subscribe(
       (res) => {
         this.listadoPersonasDto = res;
+        console.log(this.listadoPersonasDto);
       },
       (error) => {
         alert(error);
@@ -95,6 +96,7 @@ export class PersonaComponent implements OnInit {
       this.personaService.actualizarPersona(this.personaDto).subscribe(
         (res: any) => {
           // this.personaDto.push(res);
+          this.obtenerPersonas();
           this.limpiar();
           console.log('Persona actualizada con exito');
         },
@@ -107,6 +109,7 @@ export class PersonaComponent implements OnInit {
       this.personaService.crearPersona(this.personaDto).subscribe(
         (res: any) => {
           // this.personaDto.push(res);
+          this.obtenerPersonas();
           this.limpiar();
           console.log('Persona creada con exito');
         },
